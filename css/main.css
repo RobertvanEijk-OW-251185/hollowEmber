@@ -1,0 +1,178 @@
+/* Fonts */
+
+/* <weight>: Use a value from 400 to 700 */
+/* // <uniquifier>: Use a unique and descriptive class name */
+
+.pixelify-sans-h1 {
+	font-family: "Pixelify Sans", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 700;
+	font-style: normal;
+}
+
+.pixelify-sans-h2 {
+	font-family: "Pixelify Sans", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 600;
+	font-style: normal;
+}
+
+.pixelify-sans-h3 {
+	font-family: "Pixelify Sans", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 500;
+	font-style: normal;
+}
+
+.pixelify-sans-p {
+	font-family: "Pixelify Sans", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
+}
+
+/* Debug Outlines */
+.signInSignUpForm {
+	outline: 2px solid red;
+}
+.logInForm {
+	outline: 2px solid lime;
+}
+.pageLeft {
+	outline: 2px solid cyan;
+}
+.pageRight {
+	outline: 2px solid yellow;
+}
+/* Debug Outlines End */
+
+html,
+body {
+	height: 100%;
+	margin: 0;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	width: 100vw;
+	height: 100vh;
+
+	background-image: url(../assets/campfireSelectMenu.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.signInSignUpForm {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	margin-left: auto;
+	margin-right: auto;
+
+	/* width: 100%; */
+	/* height: 100%; */
+
+	width: 63.02375rem;
+	height: 46.03338rem;
+	flex-shrink: 0;
+	aspect-ratio: 115/84;
+
+	background-image: url(../assets/logInSignUpBook.png);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.logInForm {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	margin-bottom: 9rem;
+
+	flex-direction: row;
+	gap: 8rem;
+
+	/* margin-left: auto;
+	margin-right: auto; */
+
+	/* height: 100vh; */
+	/* width: 1008.38px; */
+
+	position: relative;
+}
+
+.pageLeft,
+.pageRight {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+
+	height: 100%;
+
+	/* gap: 2rem; */
+}
+
+.logInTitle {
+	color: #653b00;
+}
+
+.logInInfoUsername {
+	display: flex;
+	width: 23.17081rem;
+	height: 28.50919rem;
+	flex-direction: column;
+	justify-content: center;
+	align-items: left;
+	gap: 2.83956rem;
+}
+
+.logInInfoPassword {
+	display: flex;
+	width: 23.17081rem;
+	height: 28.50919rem;
+	flex-direction: column;
+	justify-content: center;
+	align-items: left;
+	gap: 2.83956rem;
+}
+
+/* .pageLeft,
+.pageRight {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	width: 50%; 
+	padding: 0 3rem; 
+} */
+
+.info {
+	display: flex;
+	padding: 0.39756rem 0.6815rem;
+	justify-content: center;
+	align-items: center;
+	align-self: stretch;
+}
+
+/* Right Page Log In */
+
+.turnPageBtn {
+	background-image: url(../assets/turnPage1.png);
+	background-repeat: no-repeat;
+	background-position: center;
+
+	/* background-color: #ebcb8d; */
+	background-color: transparent;
+	border-style: none;
+
+	width: 3.12138rem;
+	height: 3.11875rem;
+	aspect-ratio: 49.94/49.9;
+}
