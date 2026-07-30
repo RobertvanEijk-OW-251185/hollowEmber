@@ -16,9 +16,9 @@
 [![Behance][behance-shield]][behance-url]
 
 <!-- HEADER SECTION -->
-<h5 align="center" style="padding:0;margin:0;">Your Name & Surname</h5>
-<h5 align="center" style="padding:0;margin:0;">Student Number</h5>
-<h6 align="center">Subject Name & Year</h6>
+<h5 align="center" style="padding:0;margin:0;">Robert van Eijk</h5>
+<h5 align="center" style="padding:0;margin:0;">251185</h5>
+<h6 align="center">DV200</h6>
 </br>
 <p align="center">
 
@@ -26,7 +26,7 @@
     <img src="path/to/logo" alt="Logo" width="140" height="140">
   </a>
   
-  <h3 align="center">Project Name</h3>
+  <h3 align="center">Hollow Ember</h3>
 
   <p align="center">
     Short Project Slogan / Description <br>
