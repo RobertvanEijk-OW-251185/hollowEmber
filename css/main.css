@@ -31,8 +31,10 @@
 	font-style: normal;
 }
 
+/* Fonts End */
+
 /* Debug Outlines */
-.signInSignUpForm {
+/* .signInSignUpForm {
 	outline: 2px solid red;
 }
 .logInForm {
@@ -43,7 +45,7 @@
 }
 .pageRight {
 	outline: 2px solid yellow;
-}
+} */
 /* Debug Outlines End */
 
 html,
@@ -87,8 +89,11 @@ body {
 	background-position: center;
 }
 
+/* Log In Form Start */
+
 .logInForm {
-	display: flex;
+	/* display: flex; */
+	display: none;
 	justify-content: center;
 	align-items: center;
 
@@ -96,14 +101,6 @@ body {
 
 	flex-direction: row;
 	gap: 8rem;
-
-	/* margin-left: auto;
-	margin-right: auto; */
-
-	/* height: 100vh; */
-	/* width: 1008.38px; */
-
-	position: relative;
 }
 
 .pageLeft,
@@ -140,6 +137,8 @@ body {
 	justify-content: center;
 	align-items: left;
 	gap: 2.83956rem;
+
+	/* margin-top: 1.5rem; */
 }
 
 /* .pageLeft,
@@ -159,9 +158,26 @@ body {
 	justify-content: center;
 	align-items: center;
 	align-self: stretch;
+
+	border-top: transparent;
+	border-left: transparent;
+	border-right: transparent;
+	border-bottom: 5.452px solid #a77e55;
+
+	background-color: transparent;
 }
 
 /* Right Page Log In */
+
+.turnPageButton {
+	display: flex;
+	justify-content: flex-end;
+
+	width: 100%;
+
+	margin-top: 2rem;
+	margin-right: 5rem;
+}
 
 .turnPageBtn {
 	background-image: url(../assets/turnPage1.png);
@@ -176,3 +192,41 @@ body {
 	height: 3.11875rem;
 	aspect-ratio: 49.94/49.9;
 }
+
+.logInBtn {
+	/* display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0.43144rem; */
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0.43144rem 1.07869rem;
+	gap: 0.43144rem;
+
+	border-radius: 0.43144rem;
+	border-color: transparent;
+	background-color: rgba(123, 27, 27, 0.9);
+	box-shadow: 0 1.726px 6.903px 1.726px rgba(255, 255, 255, 0.48) inset;
+	color: aliceblue;
+}
+
+/* Log In Form End */
+
+/* Sign Up Form Start */
+
+.signUpForm {
+	/* display: none; */
+	display: flex;
+
+	justify-content: center;
+	align-items: center;
+
+	margin-bottom: 9rem;
+
+	flex-direction: row;
+	gap: 8rem;
+}
+
+/* Sign Up Form End */

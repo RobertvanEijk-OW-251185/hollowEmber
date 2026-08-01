@@ -50,21 +50,39 @@
 					</div>
 				</div>
 				<div class="pageRight">
-					<button class="turnPageBtn"></button>
+					<div class="turnPageButton">
+						<button class="turnPageBtn"></button>
+					</div>
 					<div class="logInInfoPassword">
 						<h2 class="pixelify-sans-h2">Password</h2>
 						<input type="text" class="info pixelify-sans-p" placeholder="Enter Password..."></input>
 					</div>
-					<button class="pixelify-sans-h3">Continue To Camp</button>
+					<button class="logInBtn pixelify-sans-h3">Continue To Camp</button>
 				</div>
 			</div>
-			<!-- <div class="signUpForm">
-				<h1></h1>
-				<h2></h2>
-				<p></p>
-				<h2></h2>
-				<p></p>
-			</div> -->
+			<div class="signUpForm">
+					<div class="pageLeft">
+					<h1 class="logInTitle pixelify-sans-h1">Sign Up Form</h1>
+					<div class="logInInfoUsername">
+						<h2 class="pixelify-sans-h2">Username</h2>
+						<input type="text" class="info pixelify-sans-p" placeholder="Enter Username..."></input>
+						<h2 class="pixelify-sans-h2">Email</h2>
+						<input type="text" class="info pixelify-sans-p" placeholder="Enter Email..."></input>
+					</div>
+				</div>
+				<div class="pageRight">
+					<div class="turnPageButton">
+						<button class="turnPageBtn"></button>
+					</div>
+					<div class="logInInfoPassword">
+						<h2 class="pixelify-sans-h2">Password</h2>
+						<input type="text" class="info pixelify-sans-p" placeholder="Enter Password..."></input>
+						<h2 class="pixelify-sans-h2">Re-Enter Password</h2>
+						<input type="text" class="info pixelify-sans-p" placeholder="Re-Enter Password..."></input>
+					</div>
+					<button class="logInBtn pixelify-sans-h3">Sign Up For Camp</button>
+				</div>
+			</div>
 		</section>
 
 		<!-- Bootstrap Script Link -->
