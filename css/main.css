@@ -92,8 +92,8 @@ body {
 /* Log In Form Start */
 
 .logInForm {
-	/* display: flex; */
-	display: none;
+	display: flex;
+	/* display: none; */
 	justify-content: center;
 	align-items: center;
 
@@ -217,8 +217,8 @@ body {
 /* Sign Up Form Start */
 
 .signUpForm {
-	/* display: none; */
-	display: flex;
+	display: none;
+	/* display: flex; */
 
 	justify-content: center;
 	align-items: center;
