@@ -1,0 +1,162 @@
+/* Text Styles */
+
+p {
+	color: #000;
+	text-align: center;
+	/* font-family: "Pixelify Sans"; */
+	font-family: "Press Start 2P", system-ui;
+	font-size: 1.25rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+}
+
+/* Camp Grounds Body Styling */
+
+html,
+body {
+	margin: 0;
+}
+
+body {
+	display: flex;
+	/* justify-content: space-between; */
+	justify-content: center;
+	align-items: center;
+
+	overflow: hidden;
+
+	width: 100vw;
+	height: 100vh;
+
+	background-image: url("../assets/campfireSelectMenu.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+/* Camp Body Styling */
+
+.camp_grounds {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	flex-direction: column;
+
+	gap: 20rem;
+	/* gap: 2.2rem;  */
+
+	margin-top: 0;
+	margin-bottom: 0;
+}
+/* .camp_grounds {
+	display: flex;
+	width: 90rem;
+	height: 56.25rem;
+	padding: 0 5rem 1.25rem 5rem;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+} */
+
+/* Camp Title Styling */
+
+.hero_image {
+	display: flex;
+	justify-content: center;
+	align-self: center;
+
+	margin-left: auto;
+	margin-right: auto;
+
+	width: 42.25rem;
+	height: 30.75rem;
+
+	/* background-color: transparent; */
+}
+/* .hero_image {
+	width: 41.3125rem;
+	height: 30.75rem;
+	flex-shrink: 0;
+} */
+
+.camp_name_sign {
+	display: flex;
+
+	margin-top: 0;
+	margin-bottom: 0;
+
+	width: 100%;
+	height: 100%;
+
+	background-image: url("../assets/welcomeSign.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+
+	/* background-color: transparent;
+	box-shadow: 0 21px 8px 8px rgba(0, 0, 0, 0.6); */
+}
+
+/* Camp Card Select Styling */
+
+.camp_select {
+	display: flex;
+	/* width: 90rem; */
+	height: 16.73075rem;
+	padding: 8.375rem 17.25rem 0 17.25rem;
+	justify-content: center;
+	align-items: flex-start;
+	gap: 2.5rem;
+
+	/* overflow: hidden; */
+
+	box-shadow: 0 -100px 220px 0 rgba(0, 0, 0, 0.5) inset;
+}
+
+.fire1,
+.fire2,
+.fire3,
+.fire4 {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.5rem;
+
+	/* width: 12rem;
+	height: 16.73075rem; */
+	width: 18rem;
+	height: 25.096125rem;
+	/* width: 24rem;
+	height: 33.4615rem; */
+
+	padding: 1.25rem;
+
+	border-radius: 0.5rem;
+	box-shadow: 0 21px 8px 8px rgba(0, 0, 0, 0.6);
+
+	background-image: url("../assets/campfirePlayingCard.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+
+	text-decoration: none;
+
+	/* overflow: visible; */
+
+	transition: transform 0.3s ease;
+}
+
+.fire1:hover,
+.fire2:hover,
+.fire3:hover,
+.fire4:hover {
+	cursor: pointer;
+
+	/* background-position-y: -5rem; */
+	transform: translateY(-15rem);
+}
+
+/* .fire1:hover {
+	background-position-y: -5rem;
+} */

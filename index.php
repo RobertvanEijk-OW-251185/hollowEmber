@@ -57,7 +57,8 @@
                         <h2 class="pixelify-sans-h2">Password</h2>
                         <input type="text" class="info pixelify-sans-p" placeholder="Enter Password..."></input>
                     </div>
-                    <button class="logInBtn pixelify-sans-h3">Continue To Camp</button>
+                    <button class="logInBtn pixelify-sans-h3" id="toCampGrounds" onclick="toCampGrounds()">Continue To
+                        Camp</button>
                 </div>
             </div>
             <div class="signUpForm" id="signUpPageDisplay" style="display: none;">
@@ -80,7 +81,8 @@
                         <h2 class="pixelify-sans-h2">Re-Enter Password</h2>
                         <input type="text" class="info pixelify-sans-p" placeholder="Re-Enter Password..."></input>
                     </div>
-                    <button class="logInBtn pixelify-sans-h3">Sign Up For Camp</button>
+                    <button class="logInBtn pixelify-sans-h3">Sign Up For
+                        Camp</button>
                 </div>
             </div>
         </section>

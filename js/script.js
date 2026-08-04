@@ -1,3 +1,5 @@
+// Turn Pages Function in Log Inn Book
+
 const turnPageButtons = document.querySelectorAll(".turnPageBtn");
 const logInPage = document.getElementById("logInPageDisplay");
 const signUpPage = document.getElementById("signUpPageDisplay");
@@ -18,3 +20,9 @@ turnPageButtons.forEach((btn) => {
 		}
 	});
 });
+
+// Go to Campfire Select Menu from Log In
+
+function toCampGrounds() {
+	window.location.href = "./pages/campGrounds.php";
+}
