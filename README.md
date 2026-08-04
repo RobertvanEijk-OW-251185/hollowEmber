@@ -22,8 +22,8 @@
 </br>
 <p align="center">
 
-  <a href="https://github.com/username/projectname">
-    <img src="path/to/logo" alt="Logo" width="140" height="140">
+  <a href="https://github.com/RobertvanEijk-OW-251185/hollowEmber">
+    <img src="./assets/faviconCamp.png" alt="Logo" width="140" height="140">
   </a>
   
   <h3 align="center">Hollow Ember</h3>
@@ -87,7 +87,7 @@ A nice introduction to this amazing project of mine.
 * [Technology Name](path/to/technology/website)
 
 <!-- GETTING STARTED -->
-<!-- Make sure to add appropriate information about what prerequesite technologies the user would need and also the steps to install your project on their own mashines -->
+<!-- Make sure to add appropriate information about what prerequisite technologies the user would need and also the steps to install your project on their own machines -->
 ## Getting Started
 
 The following instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
@@ -106,20 +106,20 @@ Here are a couple of ways to clone this repo:
 Enter `https://github.com/username/projectname.git` into the URL field and press the `Clone` button.
 
 2. Clone Repository </br>
-Run the following in the command-line to clone the project:
+Run the following in the command line to clone the project:
    ```sh
    git clone https://github.com/username/projectname.git
    ```
-    Open `Software` and select `File | Open...` from the menu. Select cloned directory and press `Open` button
+    Open `Software` and select `File | Open...` from the menu. Select the cloned directory and press the `Open` button
 
 3. Install Dependencies </br>
-Run the following in the command-line to install all the required dependencies:
+Run the following in the command line to install all the required dependencies:
    ```sh
    npm install
    ```
 
 4. Get a free API Key at [https://example.com](https://example.com) and enter it in the `config.js` file:
-   ```js
+   ``` js
    const API_KEY = 'ENTER YOUR API';
    ```
 
@@ -169,7 +169,7 @@ The `Conceptual Process` is the set of actions, activities and research that was
 <!-- DEVELOPMENT PROCESS -->
 ## Development Process
 
-The `Development Process` is the technical implementations and functionality done in the frontend and backend of the application.
+The `Development Process` is the technical implementation and functionality done in the frontend and backend of the application.
 
 ### Implementation Process
 <!-- stipulate all of the functionality you included in the project -->
@@ -185,7 +185,7 @@ The `Development Process` is the technical implementations and functionality don
 * Rainbows.
 
 #### Challenges
-<!-- stipulated the challenges you faced with the project and why you think you faced it or how you think you'll solve it (if not solved) -->
+<!-- stipulate the challenges you faced with the project and why you think you faced it or how you think you'll solve it (if not solved) -->
 * Bugs.
 * Bugs.
 
@@ -201,7 +201,7 @@ The `Development Process` is the technical implementations and functionality don
 
 #### Unit Tests
 
-`Unit Tests` were conducted to establish working functionality. Here are all the tests that were ran:
+`Unit Tests` were conducted to establish working functionality. Here are all the tests that were run:
 
 * Test 1 of this functionality
 * Test 2 of this functionality
@@ -224,7 +224,7 @@ The `Development Process` is the technical implementations and functionality don
 <!-- VIDEO DEMONSTRATION -->
 ### Video Demonstration
 
-To see a run through of the application, click below:
+To see a run-through of the application, click below:
 
 [View Demonstration](path/to/video/demonstration)
 
@@ -236,7 +236,7 @@ See the [open issues](https://github.com/username/projectname/issues) for a list
 <!-- CONTRIBUTING -->
 ## Contributing
 
-Contributions are what makes the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
