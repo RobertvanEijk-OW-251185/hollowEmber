@@ -20,7 +20,7 @@
         <meta name="keywords" content="HTML, CSS, JavaScript, PHP, js, css, Robert_van_Eijk_251185" />
 
 
-        <link rel="icon" type="image/x-icon" href="./assets/faviconCamp.ico">
+        <link rel="icon" type="image/x-icon" href="../assets/faviconCamp.ico">
 
         <title>Hollow Ember</title>
 
