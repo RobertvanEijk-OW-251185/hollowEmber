@@ -1,0 +1,294 @@
+/* Text Styles */
+
+h1 {
+	color: rgb(0, 0, 0);
+	text-align: center;
+	/* font-family: "Pixelify Sans"; */
+	font-family: "Press Start 2P", system-ui;
+	font-size: 1.75rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+}
+
+h2 {
+	/* color: #000;
+	text-align: center; */
+	/* font-family: "Pixelify Sans"; */
+	/* font-family: "Press Start 2P", system-ui;
+	font-size: 2rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal; */
+
+	color: #fff;
+	font-family: "Pixelify Sans";
+	font-size: 2rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+}
+
+h3 {
+	/* color: #000;
+	text-align: center; */
+	/* font-family: "Pixelify Sans"; */
+	/* font-family: "Press Start 2P", system-ui;
+	font-size: 1.7rem;
+	font-style: normal;
+	font-weight: 550;
+	line-height: normal; */
+
+	color: #fff;
+	font-family: "Pixelify Sans";
+	font-size: 1.25rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+}
+
+p {
+	color: #000;
+	text-align: center;
+	/* font-family: "Pixelify Sans"; */
+	font-family: "Press Start 2P", system-ui;
+	font-size: 1.25rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+}
+
+/* Camp Grounds Body Styling */
+
+html,
+body {
+	margin: 0;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	overflow: hidden;
+
+	width: 100vw;
+	height: 100vh;
+
+	background-image: url("../assets/campfireLobbyBase.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.camp_fire {
+	/* display: flex;
+	justify-content: space-between;
+	align-items: center; */
+	/* width: 100%;
+	height: 100%; */
+
+	display: flex;
+	width: 100%;
+	height: 100%;
+	/* width: 90rem;
+	height: 56.25rem; */
+	justify-content: space-between;
+	align-items: center;
+
+	background: linear-gradient(90deg, #000 -9.25%, rgba(0, 0, 0, 0) 100%);
+}
+
+/* Left Side Content */
+
+.left_side {
+	display: flex;
+	flex-direction: column;
+	width: 41.281656rem;
+	height: 60.45rem;
+	/* width: 34.40138rem;
+	height: 50.375rem; */
+	padding: 3.9375rem 4.75rem 6.75rem 4.125rem;
+	justify-content: center;
+	align-items: center;
+	/* gap: 0.5rem;/ */
+	gap: 3rem;
+	flex-shrink: 0;
+	aspect-ratio: 28/41;
+
+	background: url(../assets/campfireChatBook.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+
+	animation: slideInFromLeft 2.5s ease-out forwards;
+}
+
+@keyframes slideInFromLeft {
+	0% {
+		transform: translateX(-100%);
+	}
+	100% {
+		transform: translateX(0%);
+	}
+}
+
+.chat_title {
+	display: flex;
+	align-items: flex-start;
+
+	width: 78%;
+
+	/* margin-bottom: 7rem; */
+}
+
+.chat_section {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 2rem;
+
+	margin-bottom: 2rem;
+}
+
+.chat_messages {
+	display: flex;
+	width: 25.5rem;
+	height: 31.375rem;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: flex-start;
+	gap: 0.5rem;
+
+	border: 1px solid #a77e55;
+}
+
+.chat_input {
+	display: flex;
+	width: 25.5rem;
+	height: 3rem;
+	padding: 0 0.75rem;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	gap: 0.5rem;
+
+	border: 1px solid #a77e55;
+	background: #f2d08e;
+}
+
+/* Right Side Content */
+
+.right_side {
+	display: flex;
+	/* width: 31rem; */
+	padding: 3.5rem 1.75rem;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-end;
+	flex-shrink: 0;
+	align-self: stretch;
+
+	background: linear-gradient(270deg, #000 -9.25%, rgba(0, 0, 0, 0) 100%);
+}
+
+.player_display {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 1.25rem;
+	align-self: stretch;
+}
+
+.timer_section {
+	display: flex;
+	width: 21.375rem;
+	padding: 0.9375rem 0;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: 0.5rem;
+}
+
+.player1,
+.player2,
+.player3,
+.player4 {
+	display: flex;
+	/* width: 21.375rem; */
+	padding: 0.9375rem 0;
+	flex-direction: row;
+	align-items: flex-end;
+	gap: 0.5rem;
+}
+
+.player1 {
+	animation: slideInFromRight 1s ease-out forwards;
+}
+
+.player2 {
+	animation: slideInFromRight 1s ease-out 0.5s forwards;
+
+	opacity: 0;
+}
+
+.player3 {
+	animation: slideInFromRight 1s ease-out 1s forwards;
+
+	opacity: 0;
+}
+
+.player4 {
+	animation: slideInFromRight 1s ease-out 1.5s forwards;
+
+	opacity: 0;
+}
+
+@keyframes slideInFromRight {
+	0% {
+		transform: translateX(100%);
+		opacity: 0;
+	}
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+.player_info {
+	display: flex;
+	flex-direction: column;
+	padding: 1.125rem 1.5rem;
+	justify-content: flex-end;
+	align-items: flex-end;
+	gap: 0.5rem;
+	align-self: stretch;
+}
+
+.player_icon {
+	width: 7rem;
+	height: 7rem;
+	/* width: 100%;
+	height: 100%; */
+	/* aspect-ratio: 1/1; */
+
+	background: url(../assets/userIcon.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+/* Leave Camp */
+
+.leaveCamp {
+	display: flex;
+	width: 21.375rem;
+	height: 4.3125rem;
+	padding: 0.5rem 1.25rem;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	border-radius: 1rem;
+	background: rgba(123, 27, 27, 0.9);
+	box-shadow: 0 2px 8px 2px rgba(255, 255, 255, 0.48) inset;
+}

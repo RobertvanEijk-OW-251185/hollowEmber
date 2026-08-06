@@ -51,7 +51,7 @@
                 </div>
                 <div class="pageRight">
                     <div class="turnPageButton">
-                        <button class="turnPageBtn"></button>
+                        <button class="turnPageBtn" onclick="turnPage()"></button>
                     </div>
                     <div class="logInInfoPassword">
                         <h2 class="pixelify-sans-h2">Password</h2>
@@ -73,7 +73,7 @@
                 </div>
                 <div class="pageRight">
                     <div class="turnPageButton">
-                        <button class="turnPageBtn"></button>
+                        <button class="turnPageBtn" onclick="turnPage()"></button>
                     </div>
                     <div class="logInInfoPassword">
                         <h2 class="pixelify-sans-h2">Password</h2>

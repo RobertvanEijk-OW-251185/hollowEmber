@@ -1,25 +1,22 @@
-// Turn Pages Function in Log Inn Book
+// Turn Pages Function in Log In Book
 
-const turnPageButtons = document.querySelectorAll(".turnPageBtn");
-const logInPage = document.getElementById("logInPageDisplay");
-const signUpPage = document.getElementById("signUpPageDisplay");
+function turnPage(btn) {
+	const logInPage = document.getElementById("logInPageDisplay");
+	const signUpPage = document.getElementById("signUpPageDisplay");
 
-turnPageButtons.forEach((btn) => {
-	btn.addEventListener("click", () => {
-		if (
-			logInPage.style.display === "flex" &&
-			signUpPage.style.display === "none"
-		) {
-			logInPage.style.display = "none";
-			signUpPage.style.display = "flex";
-			console.log("Turned the Page, You're now on the Sign Up Page");
-		} else {
-			logInPage.style.display = "flex";
-			signUpPage.style.display = "none";
-			console.log("Turned the Page, You're now on the Login Page");
-		}
-	});
-});
+	if (
+		logInPage.style.display === "flex" &&
+		signUpPage.style.display === "none"
+	) {
+		logInPage.style.display = "none";
+		signUpPage.style.display = "flex";
+		console.log("Turned the Page, You're now on the Sign Up Page");
+	} else {
+		logInPage.style.display = "flex";
+		signUpPage.style.display = "none";
+		console.log("Turned the Page, You're now on the Login Page");
+	}
+}
 
 // Go to Campfire Select Menu from Log In
 
