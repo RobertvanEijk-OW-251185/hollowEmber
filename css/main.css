@@ -87,6 +87,8 @@ body {
 	background-image: url(../assets/logInSignUpBook.png);
 	background-repeat: no-repeat;
 	background-position: center;
+
+	/* box-shadow: 0 4px 40px 24px rgba(0, 0, 0, 0.4); */
 }
 
 /* Log In Form Start */
@@ -180,8 +182,10 @@ body {
 }
 
 .turnPageBtn {
+	/* background-image: url(../assets/turnPage.png); */
 	background-image: url(../assets/turnPage1.png);
 	background-repeat: no-repeat;
+	background-size: cover;
 	background-position: center;
 
 	/* background-color: #ebcb8d; */

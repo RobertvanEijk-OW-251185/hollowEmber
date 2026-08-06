@@ -96,6 +96,32 @@ body {
 
 	/* background-color: transparent;
 	box-shadow: 0 21px 8px 8px rgba(0, 0, 0, 0.6); */
+
+	animation: fallInFromTop 1s ease-in 0.3s forwards;
+	opacity: 0;
+}
+
+@keyframes fallInFromTop {
+	0% {
+		transform: translateY(-100%) rotate(-10deg);
+		opacity: 1;
+	}
+	70% {
+		transform: translateY(0%) rotate(20deg);
+		opacity: 1;
+	}
+	80% {
+		transform: translateY(-10%) rotate(5deg);
+		opacity: 1;
+	}
+	90% {
+		transform: translateY(5%) rotate(-5deg);
+		opacity: 1;
+	}
+	100% {
+		transform: translateY(0%);
+		opacity: 1;
+	}
 }
 
 /* Camp Card Select Styling */
@@ -112,6 +138,42 @@ body {
 	/* overflow: hidden; */
 
 	box-shadow: 0 -100px 220px 0 rgba(0, 0, 0, 0.5) inset;
+
+	/* Slide In animation */
+	/* animation: slideInFromBottom 1s ease-out forwards; */
+}
+
+.camp1 {
+	animation: slideInFromBottom 1s ease-out forwards;
+}
+
+.camp2 {
+	animation: slideInFromBottom 1s ease-out 0.5s forwards;
+
+	opacity: 0;
+}
+
+.camp3 {
+	animation: slideInFromBottom 1s ease-out 1s forwards;
+
+	opacity: 0;
+}
+
+.camp4 {
+	animation: slideInFromBottom 1s ease-out 1.5s forwards;
+
+	opacity: 0;
+}
+
+@keyframes slideInFromBottom {
+	0% {
+		transform: translateY(100%);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
 }
 
 .fire1,
@@ -144,17 +206,36 @@ body {
 
 	/* overflow: visible; */
 
+	/* Hover animation transition */
 	transition: transform 0.3s ease;
 }
 
-.fire1:hover,
-.fire2:hover,
-.fire3:hover,
+/* Slide in movement sequence */
+
+/* Slide in movement sequence end*/
+
+.fire1:hover {
+	cursor: pointer;
+
+	transform: translateY(-15rem) rotate(-3deg);
+}
+
+.fire2:hover {
+	cursor: pointer;
+
+	transform: translateY(-15rem) rotate(1.8deg);
+}
+
+.fire3:hover {
+	cursor: pointer;
+
+	transform: translateY(-15rem) rotate(-1.4deg);
+}
+
 .fire4:hover {
 	cursor: pointer;
 
-	/* background-position-y: -5rem; */
-	transform: translateY(-15rem);
+	transform: translateY(-15rem) rotate(3deg);
 }
 
 /* .fire1:hover {
