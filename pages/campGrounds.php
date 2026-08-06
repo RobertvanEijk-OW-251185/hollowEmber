@@ -53,19 +53,41 @@
                 <div class="camp_name_sign"></div>
             </div> -->
             <!-- Camp Select -->
-            <div class="camp_select">
+            <!-- <div class="camp_select">
                 <a class="fire1" href="./campfireLobby.php">
                     <p>fire 1</p>
                 </a>
-                <a class="fire2" href="">
+                <a class="fire2" href="./campfireLobby.php">
                     <p>fire 2</p>
                 </a>
-                <a class="fire3" href="">
+                <a class="fire3" href="./campfireLobby.php">
                     <p>fire 3</p>
                 </a>
-                <a class="fire4" href="">
+                <a class="fire4" href="./campfireLobby.php">
                     <p>fire 4</p>
                 </a>
+            </div> -->
+            <div class="camp_select">
+                <div class="camp1">
+                    <a class="fire1" href="./campfireLobby.php">
+                        <p>fire 1</p>
+                    </a>
+                </div>
+                <div class="camp2">
+                    <a class="fire2" href="./campfireLobby.php">
+                        <p>fire 2</p>
+                    </a>
+                </div>
+                <div class="camp3">
+                    <a class="fire3" href="./campfireLobby.php">
+                        <p>fire 3</p>
+                    </a>
+                </div>
+                <div class="camp4">
+                    <a class="fire4" href="./campfireLobby.php">
+                        <p>fire 4</p>
+                    </a>
+                </div>
             </div>
         </section>
 
