@@ -79,6 +79,61 @@ body {
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
+
+	animation: campfireBgLoop 1s ease-in-out infinite;
+}
+
+@keyframes campfireBgLoop {
+	/* 0%,
+	25% {
+		background-image: url("../assets/campfireLobbyBase.png");
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+	26%,
+	50% {
+		background-image: url("../assets/campfireLobbyBase2.png");
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+	51%,
+	75% {
+		background-image: url("../assets/campfireLobbyBase3.png");
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+	76%,
+	100% {
+		background-image: url("../assets/campfireLobbyBase4.png");
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+	} */
+
+	0%,
+	33% {
+		background-image: url("../assets/campfireLobbyBase.png");
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+	34%,
+	66% {
+		background-image: url("../assets/campfireLobbyBase2.png");
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+	67%,
+	100% {
+		background-image: url("../assets/campfireLobbyBase3.png");
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
 }
 
 .camp_fire {
@@ -277,9 +332,23 @@ body {
 	background-position: center;
 }
 
-/* Leave Camp */
+/* Leave Camp & Start Fire Buttons*/
 
 .leaveCamp {
+	display: flex;
+	width: 21.375rem;
+	height: 4.3125rem;
+	padding: 0.5rem 1.25rem;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	border-radius: 1rem;
+	background: rgba(123, 27, 27, 0.9);
+	box-shadow: 0 2px 8px 2px rgba(255, 255, 255, 0.48) inset;
+}
+
+.startFire {
 	display: flex;
 	width: 21.375rem;
 	height: 4.3125rem;

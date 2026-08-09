@@ -89,9 +89,13 @@
                 </div>
                 <div class="timer_section">
                     <div class="timer_text">
-                        <h2>03:00</h2>
+                        <h2 id="timer">03:00</h2>
+                        <!-- <h2 id="timer">`${minutes} : ${secs}`</h2> -->
                     </div>
-                    <button class="leaveCamp" id="leaveCampfire" onclick="leaveCampfire()">
+                    <button class="startFire" id="startFire" style="display: flex" onclick="startFire()">
+                        <h2>Start Fire</h2>
+                    </button>
+                    <button class="leaveCamp" id="leaveCampfire" style="display: none" onclick="leaveCampfire()">
                         <h2>Leave Fire</h2>
                     </button>
                 </div>
