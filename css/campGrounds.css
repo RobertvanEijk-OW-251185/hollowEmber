@@ -257,3 +257,30 @@ body {
 /* .fire1:hover {
 	background-position-y: -5rem;
 } */
+
+/* Leave Camp Button/Sign */
+
+.leaveCamps {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	/* gap: 0.5rem; */
+
+	width: 18rem;
+	height: 25.096125rem;
+
+	/* padding: 1.25rem; */
+
+	/* border-radius: 0.5rem; */
+	/* box-shadow: 0 21px 8px 8px rgba(0, 0, 0, 0.6); */
+
+	background-image: url("../assets/LeaveCampSignPost.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+
+	/* transform: translateY(-5rem); */
+}
+
+.logOut {
+}

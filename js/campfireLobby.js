@@ -72,12 +72,116 @@ const startBtn = document.getElementById("startFire");
 const leaveBtn = document.getElementById("leaveCampfire");
 const bonusTimerDisplay = document.getElementById("bonusTimer");
 
+// Background Fire Images preloading Start
+
+const fireImageBaseURLS = [
+	"../assets/campfireLobbyBase.png",
+	"../assets/campfireLobbyBase2.png",
+	"../assets/campfireLobbyBase3.png",
+];
+
+const fireImageBurningOutURLS = [
+	"../assets/campfireLobbyBurnoutPhase1.png",
+	"../assets/campfireLobbyBurnoutPhase2.png",
+	"../assets/campfireLobbyBurnoutPhase3.png",
+];
+
+let imagesReady = false;
+
+// function preloadImages(urls) {
+// 	return Promise.all(
+// 		urls.map((src) => {
+// 				const img = new Image();
+// 				img.src = src;
+// 					return img.decode
+// 						? img.decode().catch(() => {})
+// 						: new Promise((resolve, reject) => {
+// 							img.onload = resolve;
+// 							img.onerror = reject;
+// 					}),
+// 		})
+
+// 	);
+// }
+
+// function preloadImages(urls) {
+// 	return Promise.all(
+// 		urls.map((src) => {
+// 			const img = new Image();
+// 			img.src = src;
+// 			return img.decode
+// 				? img.decode().catch(() => {})
+// 				: new Promise((resolve, reject) => {
+// 						img.onload = resolve;
+// 						img.onerror = reject;
+// 					});
+// 		}),
+// 	);
+// }
+
+const preloadedImages = []; // keep references alive
+
+function preloadImages(urls) {
+	return Promise.all(
+		urls.map((src) => {
+			const img = new Image();
+			img.src = src;
+			preloadedImages.push(img); // hold onto it
+			return img.decode().catch(() => {});
+		}),
+	);
+}
+
+startBtn.disabled = true;
+
+preloadImages(fireImageBaseURLS)
+	.then(() => {
+		imagesReady = true;
+		console.log("Fire Animations Set 1 have Been Preloaded");
+		startBtn.disabled = false;
+	})
+	.catch((err) => {
+		console.warn("Some Fires failed preloading", err);
+		imagesReady = true;
+	});
+
+preloadImages(fireImageBurningOutURLS)
+	.then(() => {
+		imagesReady = true;
+		console.log("Fire Animations Set 2 have Been Preloaded");
+	})
+	.catch((err) => {
+		console.warn("Some Fires failed preloading", err);
+		imagesReady = true;
+	});
+
+// Background Fire Images preloading End
+
 startBtn.addEventListener("click", startFire);
 leaveBtn.addEventListener("click", leaveFire);
 
 renderTimer();
 
-updateBackground();
+// updateBackground();
+
+// Background Fire Sounds
+const music = document.getElementById("fireCrackle");
+const toggleBtn = document.getElementById("startFire");
+let isPlaying = false;
+
+music.addEventListener("error", (e) => {
+	console.error("Audio failed to load:", music.error, music.currentSrc);
+});
+
+toggleBtn.addEventListener("click", () => {
+	if (isPlaying) {
+		music.pause();
+	} else {
+		music.play().catch((err) => console.error("Playback failed:", err));
+	}
+	isPlaying = !isPlaying;
+});
+//
 
 function startFire() {
 	if (timerInterval) return; // if the fire's timer is already going...
@@ -117,6 +221,10 @@ function updateTimer() {
 		timerDisplay.innerHTML = "00:00";
 
 		backgroundImageANimation.classList.remove("backgroundAnimationLobby2");
+
+		music.pause();
+		music.currentTime = 0;
+		isPlaying = false;
 
 		console.log("The fire burnt out!!");
 	}

@@ -98,6 +98,10 @@
                     <button class="leaveCamp" id="leaveCampfire" style="display: none" onclick="leaveCampfire()">
                         <h2>Leave Fire</h2>
                     </button>
+
+                    <audio id="fireCrackle" loop>
+                        <source src="../assets/audio/burningCampFireAudio.mp3" type="audio/mpeg">
+                    </audio>
                 </div>
             </div>
         </section>
