@@ -89,11 +89,19 @@
                 </div>
                 <div class="timer_section">
                     <div class="timer_text">
-                        <h2>03:00</h2>
+                        <h2 id="timer"></h2>
+                        <h2 class="bonus_timer_text" id="bonusTimer" style="display: none"></h2>
                     </div>
-                    <button class="leaveCamp" id="leaveCampfire" onclick="leaveCampfire()">
+                    <button class="startFire" id="startFire" style="display: flex" onclick="">
+                        <h2>Start Fire</h2>
+                    </button>
+                    <button class="leaveCamp" id="leaveCampfire" style="display: none" onclick="leaveCampfire()">
                         <h2>Leave Fire</h2>
                     </button>
+
+                    <audio id="fireCrackle" loop>
+                        <source src="../assets/audio/burningCampFireAudio.mp3" type="audio/mpeg">
+                    </audio>
                 </div>
             </div>
         </section>
