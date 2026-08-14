@@ -42,6 +42,8 @@
 // 	}
 // }
 
+const backgroundImageANimation = document.querySelector("body");
+
 const START_MINUTES = 3;
 const REFRESH_MS = 1000;
 
@@ -82,6 +84,13 @@ function startFire() {
 
 	timerInterval = setInterval(updateTimer, REFRESH_MS);
 
+	backgroundImageANimation.classList.add("backgroundAnimationLobby1");
+
+	animationTimeout = setTimeout(() => {
+		backgroundImageANimation.classList.remove("backgroundAnimationLobby1");
+		backgroundImageANimation.classList.add("backgroundAnimationLobby2");
+	}, 90000);
+
 	startBtn.style.display = "none";
 	leaveBtn.style.display = "flex";
 	console.log("Fire Started");
@@ -106,6 +115,8 @@ function updateTimer() {
 		timerInterval = null;
 
 		timerDisplay.innerHTML = "00:00";
+
+		backgroundImageANimation.classList.remove("backgroundAnimationLobby2");
 
 		console.log("The fire burnt out!!");
 	}

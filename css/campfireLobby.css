@@ -75,44 +75,27 @@ body {
 	width: 100vw;
 	height: 100vh;
 
-	background-image: url("../assets/campfireLobbyBase.png");
+	background-image: url("../assets/campfireLobbyBurntOut.png");
+	/* background-image: url("../assets/campfireLobbyBurnoutPhase1.png"); */
+	/* background-image: url("../assets/campfireLobbyBurnoutPhase2.png"); */
+	/* background-image: url("../assets/campfireLobbyBurnoutPhase3.png"); */
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
 
-	animation: campfireBgLoop 1s ease-in-out infinite;
+	/* animation: campfireBgLoop1 1s ease-in-out infinite; */
+	/* animation: campfireBgLoop2 1s ease-in-out infinite; */
 }
 
-@keyframes campfireBgLoop {
-	/* 0%,
-	25% {
-		background-image: url("../assets/campfireLobbyBase.png");
-		background-size: cover;
-		background-repeat: no-repeat;
-		background-position: center;
-	}
-	26%,
-	50% {
-		background-image: url("../assets/campfireLobbyBase2.png");
-		background-size: cover;
-		background-repeat: no-repeat;
-		background-position: center;
-	}
-	51%,
-	75% {
-		background-image: url("../assets/campfireLobbyBase3.png");
-		background-size: cover;
-		background-repeat: no-repeat;
-		background-position: center;
-	}
-	76%,
-	100% {
-		background-image: url("../assets/campfireLobbyBase4.png");
-		background-size: cover;
-		background-repeat: no-repeat;
-		background-position: center;
-	} */
+.backgroundAnimationLobby1 {
+	animation: campfireBgLoop1 1s ease-in-out infinite;
+}
 
+.backgroundAnimationLobby2 {
+	animation: campfireBgLoop2 1s ease-in-out infinite;
+}
+
+@keyframes campfireBgLoop1 {
 	0%,
 	33% {
 		background-image: url("../assets/campfireLobbyBase.png");
@@ -130,6 +113,30 @@ body {
 	67%,
 	100% {
 		background-image: url("../assets/campfireLobbyBase3.png");
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+}
+
+@keyframes campfireBgLoop2 {
+	0%,
+	33% {
+		background-image: url("../assets/campfireLobbyBurnoutPhase1.png");
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+	34%,
+	66% {
+		background-image: url("../assets/campfireLobbyBurnoutPhase2.png");
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+	67%,
+	100% {
+		background-image: url("../assets/campfireLobbyBurnoutPhase3.png");
 		background-size: cover;
 		background-repeat: no-repeat;
 		background-position: center;
