@@ -1,3 +1,132 @@
+<?php
+// ========================================
+// PHP / BACKEND
+// ========================================
+
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+
+    session_start();
+
+    require_once "./php/db.php";
+
+    $signupMessage = "";
+    $loginMessage = "";
+
+    
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        
+        $action = $_POST["action"] ?? "";
+        
+        if ($action === "signup") {    
+
+            // ========================================
+            // SIGN UP
+            // ========================================
+
+
+            $username = trim($_POST["username"]);
+            $email = trim($_POST["email"]);
+            $password = $_POST["password"];
+            $confirmPassword = $_POST["confirm_password"];
+
+            if ( $username === "" || $email === "" || $password === "" || $confirmPassword === "") {
+
+                $signupMessage = "Please fill in all fields.";
+
+            } elseif ($password !== $confirmPassword) {
+
+                $signupMessage = "Passwords do not match!";
+
+            } else {
+
+                $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+
+                $sql = "INSERT INTO users (username, email, password_hash)
+                        VALUES (?, ?, ?)";
+
+                $stmt = $conn->prepare($sql);
+
+                $stmt->bind_param(
+                    "sss",
+                    $username,
+                    $email,
+                    $passwordHash
+                );
+
+                if ($stmt->execute()) {
+
+                    $signupMessage = "Account created successfully!";
+
+                } else {
+
+                    $signupMessage = "Error creating account: " . $stmt->error;
+
+                }
+
+                $stmt->close();
+            }
+            // echo $signupMessage;
+            // exit;
+        } elseif ($action === "login") {
+
+            // ========================================
+            // LOGIN
+            // ========================================    
+
+            $username = trim($_POST["username"] ?? "");
+            $password = $_POST["password"] ?? "";
+
+            if ($username === "" || $password === "") {
+
+                $loginMessage = "Please enter your username and password.";
+
+            } else {
+                
+                // Find the user
+                $sql = "SELECT user_id, username, password_hash FROM users WHERE username = ?";
+
+                $stmt = $conn->prepare($sql);
+
+                $stmt->bind_param("s", $username);
+
+                $stmt->execute();
+
+                $result = $stmt->get_result();
+
+                if ($result->num_rows === 1) {
+                    $user = $result->fetch_assoc();
+
+                    // check the password
+                    if (password_verify($password, $user["password_hash"])) {
+                        // successfully loggeed innnnn
+                        // session_start();
+
+                        $_SESSION["user_id"] = $user["id"];
+                        $_SESSION["username"] = $user["username"];
+                        
+                        // To Camp Grounds for Campfire Selection
+                        header("Location: ./pages/campGrounds.php");
+                        exit;
+
+                    } else {
+                        $loginMessage = "Incorrect Username or Password";
+                    }
+                } else {
+                    $loginMessage = "Incorrect Username or Password";
+                }
+                $stmt->close();
+            }
+        } 
+    }
+
+?>
+
+<!-- PHP Section End -->
+
+
+<!-- HTML Start -->
+
 <!doctype html>
 <!-- Doctype-->
 <html lang="en">
@@ -41,50 +170,78 @@
     <body>
         <!-- Sign In / Sign Up Form -->
         <section class="signInSignUpForm">
-            <div class="logInForm" id="logInPageDisplay" style="display: flex;">
-                <div class="pageLeft">
-                    <h1 class="logInTitle pixelify-sans-h1">Log In Form</h1>
-                    <div class="logInInfoUsername">
-                        <h2 class="pixelify-sans-h2">Username</h2>
-                        <input type="text" class="info pixelify-sans-p" placeholder="Enter Username..."></input>
+            <!-- Log In Form -->
+            <form method="POST" id="loginForm">
+                <input type="hidden" name="action" value="login">
+                <div class="logInForm" id="logInPageDisplay" style="display: flex;">
+                    <!-- Left Page -->
+                    <div class="pageLeft">
+                        <h1 class="logInTitle pixelify-sans-h1">Log In Form</h1>
+                        <div class="logInInfoUsername">
+                            <h2 class="pixelify-sans-h2">Username</h2>
+                            <input type="text" name="username" class="info pixelify-sans-p"
+                                placeholder="Enter Username..." required></input>
+                        </div>
+                    </div>
+                    <!-- Right Page -->
+                    <div class="pageRight">
+                        <div class="turnPageButton">
+                            <button type="button" class="turnPageBtn" onclick="turnPage()"></button>
+                        </div>
+                        <div class="logInInfoPassword">
+                            <h2 class="pixelify-sans-h2">Password</h2>
+                            <input type="password" name="password" class="info pixelify-sans-p"
+                                placeholder="Enter Password..." required></input>
+                        </div>
+                        <div class="loginMessage pixelify-sans-p" id="loginMessage">
+                            <?php echo $loginMessage; ?>
+                        </div>
+                        <button type="submit" class="logInBtn pixelify-sans-h3" id="toCampGrounds">Continue To
+                            Camp</button>
+                        <!-- <button type="submit" class="logInBtn pixelify-sans-h3" id="toCampGrounds"
+                            onclick="toCampGrounds()">Continue To Camp</button> -->
                     </div>
                 </div>
-                <div class="pageRight">
-                    <div class="turnPageButton">
-                        <button class="turnPageBtn" onclick="turnPage()"></button>
+            </form>
+            <!-- Sign up Form -->
+            <form method="POST" id="signupForm">
+                <div class="signUpForm" id="signUpPageDisplay" style="display: none;">
+                    <input type="hidden" name="action" value="signup">
+
+                    <!-- left page of book -->
+                    <div class="pageLeft">
+                        <h1 class="logInTitle pixelify-sans-h1">Sign Up Form</h1>
+                        <div class="logInInfoUsername">
+                            <h2 class="pixelify-sans-h2">Username</h2>
+                            <input type="text" name="username" class="info pixelify-sans-p"
+                                placeholder="Enter Username..." required></input>
+                            <h2 class="pixelify-sans-h2">Email</h2>
+                            <input type="email" name="email" class="info pixelify-sans-p" placeholder="Enter Email..."
+                                required></input>
+                        </div>
                     </div>
-                    <div class="logInInfoPassword">
-                        <h2 class="pixelify-sans-h2">Password</h2>
-                        <input type="text" class="info pixelify-sans-p" placeholder="Enter Password..."></input>
+                    <!-- right page of book -->
+                    <div class="pageRight">
+                        <div class="turnPageButton">
+                            <button type="button" class="turnPageBtn" onclick="turnPage()"></button>
+                        </div>
+                        <div class="logInInfoPassword">
+                            <h2 class="pixelify-sans-h2">Password</h2>
+                            <input type="password" name="password" class="info pixelify-sans-p"
+                                placeholder="Enter Password..." required></input>
+                            <h2 class="pixelify-sans-h2">Re-Enter Password</h2>
+                            <input type="password" name="confirm_password" class="info pixelify-sans-p"
+                                placeholder="Re-Enter Password..." required></input>
+                        </div>
+                        <div class="signupMessage pixelify-sans-p" id="signupMessage">
+                            <?php echo $signupMessage; ?>
+                        </div>
+                        <button type="submit" class="logInBtn pixelify-sans-h3">Sign Up For
+                            Camp</button>
                     </div>
-                    <button class="logInBtn pixelify-sans-h3" id="toCampGrounds" onclick="toCampGrounds()">Continue To
-                        Camp</button>
                 </div>
-            </div>
-            <div class="signUpForm" id="signUpPageDisplay" style="display: none;">
-                <div class="pageLeft">
-                    <h1 class="logInTitle pixelify-sans-h1">Sign Up Form</h1>
-                    <div class="logInInfoUsername">
-                        <h2 class="pixelify-sans-h2">Username</h2>
-                        <input type="text" class="info pixelify-sans-p" placeholder="Enter Username..."></input>
-                        <h2 class="pixelify-sans-h2">Email</h2>
-                        <input type="text" class="info pixelify-sans-p" placeholder="Enter Email..."></input>
-                    </div>
-                </div>
-                <div class="pageRight">
-                    <div class="turnPageButton">
-                        <button class="turnPageBtn" onclick="turnPage()"></button>
-                    </div>
-                    <div class="logInInfoPassword">
-                        <h2 class="pixelify-sans-h2">Password</h2>
-                        <input type="text" class="info pixelify-sans-p" placeholder="Enter Password..."></input>
-                        <h2 class="pixelify-sans-h2">Re-Enter Password</h2>
-                        <input type="text" class="info pixelify-sans-p" placeholder="Re-Enter Password..."></input>
-                    </div>
-                    <button class="logInBtn pixelify-sans-h3">Sign Up For
-                        Camp</button>
-                </div>
-            </div>
+            </form>
+
         </section>
 
         <!-- Bootstrap Script Link -->
