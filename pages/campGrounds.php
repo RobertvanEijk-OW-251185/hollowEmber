@@ -1,3 +1,22 @@
+<!-- PHP Section Start -->
+<?php
+// ========================================
+// PHP / BACKEND
+// ========================================
+
+session_start();
+
+// // Not logged in, return to index
+if (!isset($_SESSION["user_id"])) {
+    header("Location: ../index.php");
+    exit;
+}
+?>
+<!-- PHP Section End -->
+
+
+<!-- HTML Start -->
+
 <!doctype html>
 <!-- Doctype-->
 <html lang="en">
@@ -52,22 +71,22 @@
             <!-- Camp Select -->
             <div class="camp_select">
                 <div class="camp1">
-                    <a class="fire1" href="./campfireLobby.php">
+                    <a class="fire1" href="./campfireLobby.php?campfire=1">
                         <p>fire 1</p>
                     </a>
                 </div>
                 <div class="camp2">
-                    <a class="fire2" href="./campfireLobby2.php">
+                    <a class="fire2" href="./campfireLobby.php?campfire=2">
                         <p>fire 2</p>
                     </a>
                 </div>
                 <div class="camp3">
-                    <a class="fire3" href="./campfireLobby3.php">
+                    <a class="fire3" href="./campfireLobby.php?campfire=3">
                         <p>fire 3</p>
                     </a>
                 </div>
                 <div class="camp4">
-                    <a class="fire4" href="./campfireLobby4.php">
+                    <a class="fire4" href="./campfireLobby.php?campfire=4">
                         <p>fire 4</p>
                     </a>
                 </div>

@@ -217,12 +217,23 @@ body {
 	display: flex;
 	width: 25.5rem;
 	height: 31.375rem;
-	flex-direction: column;
-	justify-content: flex-end;
+	flex-direction: column-reverse;
+	justify-content: flex-start;
 	align-items: flex-start;
 	gap: 0.5rem;
 
 	border: 1px solid #a77e55;
+
+	overflow-y: scroll;
+}
+
+.chat_message {
+	display: flex;
+	width: 100%;
+}
+
+.chatMessageSelf {
+	color: #000;
 }
 
 .chat_input {
@@ -257,7 +268,7 @@ body {
 .player_display {
 	display: flex;
 	flex-direction: column;
-	align-items: flex-start;
+	align-items: flex-end;
 	gap: 1.25rem;
 	align-self: stretch;
 }

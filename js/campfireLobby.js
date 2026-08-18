@@ -1,46 +1,55 @@
+// Messaging Functionality:
+// // Form submission without page reload
+
+const chatForm = document.getElementById("chatForm");
+const chatInput = document.getElementById("chatInput");
+
+const chatMessages = document.querySelector(".chat_messages");
+
+function escapeHtml(str) {
+	return str
+		.replace(/&/g, "&amp;")
+		.replace(/</g, "&lt;")
+		.replace(/>/g, "&gt;")
+		.replace(/"/g, "&quot;")
+		.replace(/'/g, "&#039;");
+}
+
+if (chatForm) {
+	chatForm.addEventListener("submit", async function (event) {
+		event.preventDefault();
+
+		const message = chatInput.value.trim();
+		if (!message) return;
+
+		const formData = new FormData(chatForm);
+
+		try {
+			const response = await fetch(window.location.href, {
+				method: "POST",
+				body: formData,
+			});
+
+			if (!response.ok) {
+				throw new Error("Message Send Failed");
+			}
+
+			chatInput.value = "";
+
+			chatMessages.insertAdjacentHTML(
+				"beforeend",
+				`<div class="chat_message"><h3 class="chatMessageSelf"><strong>You:</strong> ${message}</h3></div>`,
+				// `<div class="chat_message"><h3 class="chatMessageSelf"><strong>You:</strong> ${escapeHtml(message)}</h3></div>`,
+			);
+		} catch (error) {
+			console.error("Message failed to send:", error);
+		}
+	});
+}
+
+// // Disable message chat box if timer is not active
+
 // Start Fire and Timer
-
-// const startingTime = 3;
-// let time = startingTime * 60;
-
-// const count = document.getElementById("timer");
-
-// const startFireBtn = document.getElementById("startFire");
-
-// let timerInterval = null;
-
-// startFireBtn.addEventListener("click", startFire);
-
-// function startFire() {
-// 	timerInterval = setInterval(updateTimer, 1000);
-
-// 	const startBtn = document.getElementById("startFire");
-// 	const leaveBtn = document.getElementById("leaveCampfire");
-
-// 	if (startBtn.style.display === "flex" && leaveBtn.style.display === "none") {
-// 		startBtn.style.display = "none";
-// 		leaveBtn.style.display = "flex";
-// 		console.log("Fire Started");
-// 	} else {
-// 		startBtn.style.display = "flex";
-// 		leaveBtn.style.display = "none";
-// 		console.log("Left The Fire");
-// 	}
-// }
-
-// function updateTimer() {
-// 	const minutes = Math.floor(time / 60);
-// 	let seconds = time % 60;
-
-// 	seconds = seconds < 10 ? "0" + seconds : seconds;
-// 	count.innerHTML = `${minutes}:${seconds}`;
-// 	time--;
-
-// 	if (time < 0) {
-// 		clearInterval(timerInterval);
-// 		console.log("The fire burnt out!!");
-// 	}
-// }
 
 const backgroundImageANimation = document.querySelector("body");
 
@@ -48,7 +57,7 @@ const START_MINUTES = 3;
 const REFRESH_MS = 1000;
 
 // scoring variables:
-const SCORE_THRESHOLD = 15000;
+const SCORE_THRESHOLD = 15000; // Threshold functionality postponed
 const BONUS_MINUTES = 1;
 
 let timeRemaining = START_MINUTES * 60;
@@ -66,6 +75,19 @@ let score = 0;
 let bonusActive = false;
 let bonusInterval = null;
 let bonusTimeRemaining = 0;
+
+//
+// Scoring Functionality:
+// // Scores calculated by sent messages per x amount of time
+// // // +50 points for a message every 5 seconds
+// // // +35 points for a message every 10 seconds
+// // // +10 points for a message every 15 seconds
+// // Scores reduced for not sending messages per x amount of time
+// // // -5 points for no sent message every 7 seconds
+// // // -12 points for no sent message every 12 seconds
+// // Time addition on campfire [BIG BIG MAYBE]
+// // // Every 5 messages sent, add 10 seconds to the fire
+//
 
 const timerDisplay = document.getElementById("timer");
 const startBtn = document.getElementById("startFire");
@@ -87,37 +109,6 @@ const fireImageBurningOutURLS = [
 ];
 
 let imagesReady = false;
-
-// function preloadImages(urls) {
-// 	return Promise.all(
-// 		urls.map((src) => {
-// 				const img = new Image();
-// 				img.src = src;
-// 					return img.decode
-// 						? img.decode().catch(() => {})
-// 						: new Promise((resolve, reject) => {
-// 							img.onload = resolve;
-// 							img.onerror = reject;
-// 					}),
-// 		})
-
-// 	);
-// }
-
-// function preloadImages(urls) {
-// 	return Promise.all(
-// 		urls.map((src) => {
-// 			const img = new Image();
-// 			img.src = src;
-// 			return img.decode
-// 				? img.decode().catch(() => {})
-// 				: new Promise((resolve, reject) => {
-// 						img.onload = resolve;
-// 						img.onerror = reject;
-// 					});
-// 		}),
-// 	);
-// }
 
 const preloadedImages = []; // keep references alive
 
@@ -182,6 +173,36 @@ toggleBtn.addEventListener("click", () => {
 	isPlaying = !isPlaying;
 });
 //
+
+// Need to add disabled, until the player cap is met
+// // If Players Cap not met, then not show the start fire btn, instead show leave button
+// // Once Player cap is met, Generate random topic for this lobby, and automatically start the timer.
+
+function checkPlayers() {
+	let campMembers = 4;
+	let reqCampMembers = 4;
+	let membersNeeded = reqCampMembers - campMembers;
+
+	const chatMessageInput = document.getElementById("chatInput");
+
+	if (campMembers < reqCampMembers) {
+		startBtn.style.display = "none";
+		leaveBtn.style.display = "flex";
+
+		chatMessageInput.disabled = true;
+
+		console.log("Members Needed:", `${membersNeeded}`);
+	} else if (campMembers === reqCampMembers) {
+		startBtn.style.display = "flex";
+		leaveBtn.style.display = "none";
+
+		chatMessageInput.disabled = false;
+
+		console.log("Members Needed:", `${membersNeeded}`);
+	}
+}
+
+checkPlayers();
 
 function startFire() {
 	if (timerInterval) return; // if the fire's timer is already going...
