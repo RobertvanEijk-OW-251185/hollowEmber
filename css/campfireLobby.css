@@ -174,7 +174,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	/* gap: 0.5rem;/ */
-	gap: 3rem;
+	/* gap: 2rem; */
 	flex-shrink: 0;
 	aspect-ratio: 28/41;
 
@@ -197,11 +197,14 @@ body {
 
 .chat_title {
 	display: flex;
+	flex-direction: column;
 	align-items: flex-start;
 
-	width: 78%;
+	gap: 1rem;
 
-	/* margin-bottom: 7rem; */
+	width: 100%;
+
+	margin-top: 2rem;
 }
 
 .chat_section {
@@ -217,7 +220,7 @@ body {
 	display: flex;
 	width: 25.5rem;
 	height: 31.375rem;
-	flex-direction: column-reverse;
+	flex-direction: column;
 	justify-content: flex-start;
 	align-items: flex-start;
 	gap: 0.5rem;
@@ -230,6 +233,10 @@ body {
 .chat_message {
 	display: flex;
 	width: 100%;
+}
+
+.blackText {
+	color: #000;
 }
 
 .chatMessageSelf {
@@ -282,38 +289,20 @@ body {
 	gap: 0.5rem;
 }
 
-.player1,
-.player2,
-.player3,
-.player4 {
+.player-card {
 	display: flex;
-	/* width: 21.375rem; */
 	padding: 0.9375rem 0;
 	flex-direction: row;
 	align-items: flex-end;
 	gap: 0.5rem;
 }
 
-.player1 {
+.player_score {
+	color: aliceblue;
+}
+
+.player-entering {
 	animation: slideInFromRight 1s ease-out forwards;
-}
-
-.player2 {
-	animation: slideInFromRight 1s ease-out 0.5s forwards;
-
-	opacity: 0;
-}
-
-.player3 {
-	animation: slideInFromRight 1s ease-out 1s forwards;
-
-	opacity: 0;
-}
-
-.player4 {
-	animation: slideInFromRight 1s ease-out 1.5s forwards;
-
-	opacity: 0;
 }
 
 @keyframes slideInFromRight {
@@ -351,6 +340,13 @@ body {
 }
 
 /* Leave Camp & Start Fire Buttons*/
+
+.campFireBtns {
+	display: flex;
+	flex-direction: row-reverse;
+
+	gap: 1rem;
+}
 
 .leaveCamp {
 	display: flex;
