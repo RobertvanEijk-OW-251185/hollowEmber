@@ -12,8 +12,6 @@
 ![GitHub language count](https://img.shields.io/github/languages/count/RobertvanEijk-OW-251185/hollowEmber?color=000000)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/RobertvanEijk-OW-251185/hollowEmber?color=000000)
 [![LinkedIn][linkedin-shield]][linkedin-url]
-[![Instagram][instagram-shield]][instagram-url]
-[![Behance][behance-shield]][behance-url]
 
 <!-- HEADER SECTION -->
 <h5 align="center" style="padding:0;margin:0;">Robert van Eijk</h5>
@@ -29,15 +27,11 @@
   <h3 align="center">Hollow Ember</h3>
 
   <p align="center">
-    Short Project Slogan / Description <br>
-      <a href="https://github.com/username/projectname"><strong>Explore the docs »</strong></a>
+    Share your thoughts by the fire! <br>
+      <a href="https://github.com/RobertvanEijk-OW-251185/holoowEmber"><strong>Explore the docs »</strong></a>
    <br />
    <br />
    <a href="path/to/demonstration/video">View Demo</a>
-    ·
-    <a href="https://github.com/username/projectname/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/username/projectname/issues">Request Feature</a>
 </p>
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
@@ -52,14 +46,12 @@
 * [Concept Process](#concept-process)
    * [Ideation](#ideation)
    * [Wireframes](#wireframes)
-   * [User-flow](#user-flow)
 * [Development Process](#development-process)
    * [Implementation Process](#implementation-process)
         * [Highlights](#highlights)
         * [Challenges](#challenges)
-   * [Reviews and Testing](#peer-reviews)
+   * [Reviews](#peer-reviews)
         * [Feedback from Reviews](#feedback-from-reviews)
-        * [Unit Tests](#unit-tests)
    * [Future Implementation](#peer-reviews)
 * [Final Outcome](#final-outcome)
     * [Mockups](#mockups)
@@ -74,7 +66,8 @@
 <!--PROJECT DESCRIPTION-->
 ## About the Project
 <!-- header image of project -->
-![image1][image1]
+![Banner](./assets/Mockups/Banner.png)
+
 
 ### Project Description
 
@@ -128,22 +121,30 @@ Run the following in the command line to install all the required dependencies:
 <!-- You can add the links to all of your imagery at the bottom of the file as references -->
 ## Features and Functionality
 
-![image2][image2]
-### Feature 1
+### Log In and Sign Up
 
 Description of Feature
 
-![image3][image3]
-### Feature 2
+![Login](assets/FeaturesImages/Login.png)
+
+![Signup](assets/FeaturesImages/Signup.png)
+
+### Camp Select
 
 Description of Feature
 
-![image4][image4]
-### Feature 3
+![CampSelectBase](assets/FeaturesImages/CampSelect.png)
+
+![CampSelectHover1](assets/FeaturesImages/CampSelectHover1.png)
+
+![CampSelectHover3](assets/FeaturesImages/CampSelectHover3.png)
+
+### Campfire Chat
 
 Description of Feature
 
-![image5][image5]
+![image4](assets/FeaturesImages/CampfireRoom.png)
+
 
 
 <!-- CONCEPT PROCESS -->
@@ -154,17 +155,11 @@ The `Conceptual Process` is the set of actions, activities and research that was
 
 ### Ideation
 
-![image5][image5]
-<br>
-![image6][image6]
+![Ideation](assets/Mockups/Ideation.png)
 
 ### Wireframes
 
-![image7][image7]
-
-### User-flow
-
-![image8][image8]
+![Wireframes](assets/Mockups/Wireframes.png)
 
 <!-- DEVELOPMENT PROCESS -->
 ## Development Process
@@ -199,13 +194,6 @@ The `Development Process` is the technical implementation and functionality done
 * Feedback one.
 * Feedback two.
 
-#### Unit Tests
-
-`Unit Tests` were conducted to establish working functionality. Here are all the tests that were run:
-
-* Test 1 of this functionality
-* Test 2 of this functionality
-
 ### Future Implementation
 <!-- stipulate functionality and improvements that can be implemented in the future. -->
 
@@ -217,9 +205,17 @@ The `Development Process` is the technical implementation and functionality done
 
 ### Mockups
 
-![image9][image9]
+![Mockup1](assets/Mockups/Signup.png)
 <br>
-![image10][image10]
+![Mockup2](assets/Mockups/Login.png)
+<br>
+![Mockup3](assets/Mockups/CampSelect.png)
+<br>
+![Mockup4](assets/Mockups/CampfireStart.png)
+<br>
+![Mockup6](assets/Mockups/CampfrieMiddel.png)
+<br>
+![Mockup7](assets/Mockups/CampfireEnd.png)
 
 <!-- VIDEO DEMONSTRATION -->
 ### Video Demonstration
@@ -247,7 +243,7 @@ Contributions are what make the open-source community such an amazing place to l
 <!-- AUTHORS -->
 ## Authors
 
-* **Your Name & Surname** - [username](https://github.com/username)
+* **Robert Connor van Eijk** - [RobertvanEijk-OW-251185](https://github.com/RobertvanEijk-OW-251185)
 
 <!-- LICENSE -->
 ## License
@@ -257,8 +253,8 @@ Distributed under the MIT License. See `LICENSE` for more information.\
 <!-- LICENSE -->
 ## Contact
 
-* **Your Name & Surname** - [email@address](mailto:email@address) - [@instagram_handle](https://www.instagram.com/instagram_handle/) 
-* **Project Link** - https://github.com/username/projectname
+* **Robert Connor van Eijk** - [251185@virtualwindow.co.za](mailto:251185@virtualwindow.co.za)
+* **Project Link** - https://github.com/RobertvanEijk-OW-251185/hollowEmber
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
@@ -271,16 +267,21 @@ Distributed under the MIT License. See `LICENSE` for more information.\
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[image1]: /path/to/image.png
-[image2]: /path/to/image.png
-[image3]: /path/to/image.png
-[image4]: /path/to/image.png
-[image5]: /path/to/image.png
-[image6]: /path/to/image.png
-[image7]: /path/to/image.png
-[image8]: /path/to/image.png
-[image9]: /path/to/image.png
-[image10]: /path/to/image.png
+[Banner]: assets/Mockups/Banner.png
+[CampSelect]: assets/Mockups/CampSelect.png
+[CampfireEnd]: assets/Mockups/CampfireEnd.png
+[CampfireStart]: assets/Mockups/CampfireStart.png
+[CampfrieMiddel]: assets/Mockups/CampfrieMiddel.png
+[Ideation]: assets/Mockups/Ideation.png
+[Login]: assets/Mockups/Login.png
+[Signup]: assets/Mockups/Signup.png
+[Wireframes]: assets/Mockups/Wireframes.png
+[CampSelect]: assets/FeaturesImages/CampSelect.png
+[CampSelectHover1]: assets/FeaturesImages/CampSelectHover1.png
+[CampSelectHover3]: assets/FeaturesImages/CampSelectHover3.png
+[CampfireRoom]: assets/FeaturesImages/CampfireRoom.png
+[Login]: assets/FeaturesImages/Login.png
+[Signup]: assets/FeaturesImages/Signup.png
 
 
 <!-- Refer to https://shields.io/ for more information and options about the shield links at the top of the ReadMe file -->
