@@ -87,7 +87,7 @@ The following instructions will get a copy of the project up and running on your
 
 ### Prerequisites
 
-Ensure that you have the latest version of [XAMP](https://www.apachefriends.org/download.html) installed on your machine.
+Ensure that you have the latest version of [XAMPP](https://www.apachefriends.org/download.html) installed on your machine.
 
 ### How to install
 
@@ -99,7 +99,7 @@ Run the following in the command line to clone the project:
    ```sh
    git clone https://github.com/RobertvanEijk-OW-251185/hollowEmber.git
    ```
-    Open `Software` and select `File | Open...` from the menu. Select the cloned directory and press the `Open` button
+    Note: Clone the repo into your XAMPP application folder within the htdocs folders
 
 2. Run services in XAMPP Menu </br>
 Run the following in the command line to install all the required dependencies:
