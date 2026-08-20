@@ -131,12 +131,13 @@ After players have created their accounts and logged in, they will arrive at the
 
 ### Campfire Chat
 
-After joining a campfire, players wait for the fire to fill to a maximum of 4 players. Then, a random topic is chosen from the database and assigned to the session. Only then does the Start Fire button become active, and any player can light the fire to begin the conversation. Through chatting, players earn scores for their messages and lose score if they stop engaging. When the fire burns out, all chat communication ends, and players can either leave themselves or be removed after a 10-second waiting period.
+After joining a campfire, players wait for the fire to fill to a maximum of 4 players. Then, a random topic is chosen from the database and assigned to the session. Only then does the Start Fire button become active, and any player can light the fire to begin the conversation. Through chatting, players earn scores for their messages and lose scores if they stop engaging. When the fire burns out, all chat communication ends, and players can either leave themselves or be removed after a 10-second waiting period.
 
 ![image4](assets/FeaturesImages/CampfireRoom.png)
-![image4](assets/FeaturesImages/CampfireRoom.png)
-![image4](assets/FeaturesImages/CampfireRoom.png)
-![image4](assets/FeaturesImages/CampfireRoom.png)
+![image4](assets/FeaturesImages/CampFireRoomFullStart.png)
+![image4](assets/FeaturesImages/CampFireRoomMessagesAndScore.png)
+![image4](assets/FeaturesImages/CampfireRoomBackgroundChange.png)
+![image4](assets/FeaturesImages/CampfireRoomEnd.png)
 
 
 
