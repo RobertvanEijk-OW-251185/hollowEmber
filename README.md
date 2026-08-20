@@ -47,15 +47,11 @@
    * [Wireframes](#wireframes)
 * [Development Process](#development-process)
    * [Implementation Process](#implementation-process)
-        * [Highlights](#highlights)
         * [Challenges](#challenges)
-   * [Reviews](#peer-reviews)
-        * [Feedback from Reviews](#feedback-from-reviews)
    * [Future Implementation](#peer-reviews)
 * [Final Outcome](#final-outcome)
     * [Mockups](#mockups)
     * [Video Demonstration](#video-demonstration)
-* [Conclusion](#conclusion)
 * [Roadmap](#roadmap)
 * [Contributing](#contributing)
 * [License](#license)
@@ -70,7 +66,9 @@
 
 ### Project Description
 
-This project is a cozy, camp-style game designed to foster important conversations that won't be remembered by any system. Join a fire and the discussion to keep the burning flame going.
+Hollow Ember is a cozy, campfire-inspired web game designed to encourage spontaneous and meaningful conversations between players. After creating an account, players can choose a campfire and join a temporary discussion session with up to four participants. Once the fire is full, the session receives a randomly selected discussion topic, and any player can start the fire.
+
+Each conversation lasts for three minutes. Players keep the discussion going by contributing messages, with a browser-based scoring system rewarding regular participation and applying penalties for inactivity. When the timer reaches zero, the fire burns out, the chat is locked, and the session is cleared after a short waiting period so the next group can begin with a new topic. Hollow Ember combines a cozy pixel-art camp setting with lightweight multiplayer interaction, timed sessions, and conversations that are not retained as a permanent chat history.
 
 ### Built With
 
@@ -109,7 +107,7 @@ Run the following in the command line to install all the required dependencies:
    npm install
    ```
 
-3. Open localhost server in Browser </br>
+3. Open localhost server in your Browser </br>
 Paste the following URL into your browser to open the application:
    ```sh
    [npm install](http://localhost/hollowEmber/)
@@ -122,7 +120,9 @@ Paste the following URL into your browser to open the application:
 
 ### Log In and Sign Up
 
-Players are first introduced to the camp through the Logbook. From there, they can create an account, log in, and join the camp to begin their experience.
+The logbook is implemented in `index.php` with two server-side POST flows. The sign-up form collects a username, email address, password, and password confirmation. PHP checks that all fields are filled and that both passwords match, hashes the password with `password_hash()`, and inserts the new account into the `users` table using a prepared statement. Creating an account displays a success message, but does not automatically log the player in.
+
+The login form sends the username and password to the same PHP page. PHP looks up the account with a prepared statement and verifies the submitted password with `password_verify()`. On success, it stores the user ID and username in the PHP session and redirects the player to `pages/campGrounds.php`; invalid or incomplete credentials produce an error message. The protected camp pages check that session before allowing access.
 
 ![Login](assets/FeaturesImages/Login.png)
 
@@ -130,7 +130,7 @@ Players are first introduced to the camp through the Logbook. From there, they c
 
 ### Camp Select
 
-After players have created their accounts and logged in, they will arrive at the Camp Select Menu. Here, they can choose a campfire to join and wait patiently for the session to fill with other players.
+After login, `pages/campGrounds.php` displays four campfire choices. Each choice is a link containing a different `campfire` query parameter, which sends the player to the matching lobby in `pages/campfireLobby.php`. The campgrounds page requires an authenticated PHP session, and `js/campGrounds.js` attempts to start the looping forest-wind audio when the page loads. The commented-out logout link is not currently active.
 
 ![CampSelectBase](assets/FeaturesImages/CampSelect.png)
 
@@ -140,13 +140,21 @@ After players have created their accounts and logged in, they will arrive at the
 
 ### Campfire Chat
 
-After joining a campfire, players wait for the fire to fill to a maximum of 4 players. Then, a random topic is chosen from the database and assigned to the session. Only then does the Start Fire button become active, and any player can light the fire to begin the conversation. Through chatting, players earn scores for their messages and lose scores if they stop engaging. When the fire burns out, all chat communication ends, and players can either leave themselves or be removed after a 10-second waiting period.
+When a player opens a lobby, PHP finds the latest `campfire_sessions` row for that campfire. If none exists, it creates a waiting session and assigns it a random row from `topics`. The player is then added to `session_participants` with their account name as the anonymous display name and an initial database score of zero. The lobby reads the current participants, topic, session status, and messages from MySQL.
 
-![image4](assets/FeaturesImages/CampfireRoom.png)
-![image4](assets/FeaturesImages/CampFireRoomFullStart.png)
-![image4](assets/FeaturesImages/CampFireRoomMessagesAndScore.png)
-![image4](assets/FeaturesImages/CampfireRoomBackgroundChange.png)
-![image4](assets/FeaturesImages/CampfireRoomEnd.png)
+The client polls `campfireLobby.php?action=get_players` every three seconds. Each response updates the player cards, topic, messages, scores, session status, and timer without reloading the page. The lobby uses a maximum of four players in JavaScript: until four players are present, the chat input and Start Fire button are disabled, and the topic is displayed as `Topic`. The server independently checks the participant count before accepting `start_fire`; only a full session in the `waiting` state can become `active`.
+
+Messages are submitted asynchronously by `campfireLobby.js`. A non-empty message is inserted into `messages` with its participant and session IDs, and then the lobby is refreshed. The visible score is calculated in the browser from the messages currently returned by the database: the first message earns 50 points, later messages earn 50, 35, or 10 points based on the gap from the previous message, and inactivity applies a 12-point penalty for each completed 12-second interval. This score is presentation-only; the current JavaScript does not write the calculated score back to `contribution_score`.
+
+Starting a fire sets `status` to `active` and records `start_time`. JavaScript displays a three-minute countdown based on that database timestamp. The body switches between the normal fire background and the burnout background at 90 seconds, and the fire-crackle audio is toggled when the fire starts. During polling, PHP changes an active session to `burned` after 180 seconds. The client then stops the timer and audio, resets the background, and locks the chat. After a burned session has been in that state for 10 seconds, PHP deletes its messages and participants, selects a new random topic, and resets the session to `waiting`.
+
+The Leave Fire button sends `leave_session`, which deletes only the current user's participant row before returning to the campgrounds. The lobby also redirects back there when the polling response reports that post-fire cleanup is complete.
+
+![CampfireRoom](assets/FeaturesImages/CampfireRoom.png)
+![CampFireRoomFullStart](assets/FeaturesImages/CampFireRoomFullStart.png)
+![CampFireRoomMessagesAndScore](assets/FeaturesImages/CampFireRoomMessagesAndScore.png)
+![CampfireRoomBackgroundChange](assets/FeaturesImages/CampfireRoomBackgroundChange.png)
+![CampfireRoomEnd](assets/FeaturesImages/CampfireRoomEnd.png)
 
 
 
@@ -172,9 +180,17 @@ The `Development Process` is the technical implementation and functionality done
 ### Implementation Process
 <!-- stipulate all of the functionality you included in the project -->
 
-* Made use of both `functionality` to implement a specific feature.
-* `MVC/MVVM` design architecture implemented.
-* ETC.
+The application was implemented with a server-rendered PHP frontend, a MySQL database, and JavaScript for interactive behavior. The main implementation areas were:
+
+* **Account authentication:** `index.php` handles sign-up and login requests. New passwords are securely hashed with PHP's `password_hash()` function, while login credentials are checked with `password_verify()`. Successful logins store the user's ID and username in a PHP session.
+* **Database communication:** `php/db.php` creates the MySQL connection. Database queries use prepared statements and parameter binding to create users, find accounts, create or update campfire sessions, manage participants, select topics, and store messages.
+* **Campfire sessions:** `pages/campfireLobby.php` creates or retrieves the latest session for a selected campfire and adds the logged-in user to `session_participants`. The server checks that a session has four players before changing its status from `waiting` to `active`.
+* **Live lobby updates:** `js/campfireLobby.js` polls the lobby every three seconds and updates player cards, the topic, messages, scores, session status, and timer without reloading the whole page.
+* **Chat and scoring:** Messages are submitted asynchronously and stored in the `messages` table. Scores are calculated in the browser from message timing: frequent messages receive more points, while periods of inactivity apply penalties. The displayed score is recalculated whenever the lobby is refreshed.
+* **Timer and fire states:** The server records the start time and marks an active fire as `burned` after three minutes. JavaScript synchronizes the countdown with that timestamp, changes the fire background halfway through the session, and stops chat and audio when the fire ends.
+* **Leaving and cleanup:** A player can leave through the Leave Fire button, which removes that user's participant row. Ten seconds after a fire burns out, the server removes the session's messages and participants, assigns a new topic, and returns the session to the waiting state.
+
+The project uses a straightforward PHP page-and-script structure. PHP controls authentication, authorization, database operations, and session state, while JavaScript controls browser-side interaction, polling, animation state, audio, and live interface updates.
 
 #### Challenges
 <!-- stipulate the challenges you faced with the project and why you think you faced them or how you think you'll solve them (if not solved) -->
@@ -250,12 +266,13 @@ Distributed under the MIT License. See `LICENSE` for more information.\
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 <!-- all resources that you used and Acknowledgements here -->
-* [Resource Name](path/to/resource)
-* [Resource Name](path/to/resource)
-* [Resource Name](path/to/resource)
-* [Resource Name](path/to/resource)
-* [Resource Name](path/to/resource)
-
+* [W3 Schools](https://www.w3schools.com/php/php_mysql_intro.asp)
+* [W3 Schools](https://www.w3schools.com/php/php_ajax_php.asp)
+* [W3 Schools](https://www.w3schools.com/php/php_ajax_database.asp)
+* [W3 Schools](https://www.w3schools.com/php/php_ajax_poll.asp)
+* [Stack Overflow](https://stackoverflow.com/questions/44983064/php-and-sql-select-from-database)
+* [Stack Overflow](https://stackoverflow.com/questions/79928076/practical-tips-for-coding)
+* [Stack Overflow](https://stackoverflow.com/questions/79889745/how-to-output-a-row-from-table-b-based-on-a-value-in-a-row-for-table-a-for-every)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [Banner]: assets/Mockups/Banner.png
