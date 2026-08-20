@@ -102,7 +102,7 @@
                         // successfully loggeed innnnn
                         // session_start();
 
-                        $_SESSION["user_id"] = $user["id"];
+                        $_SESSION["user_id"] = $user["user_id"];
                         $_SESSION["username"] = $user["username"];
                         
                         // To Camp Grounds for Campfire Selection
