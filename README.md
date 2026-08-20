@@ -11,7 +11,6 @@
 ![GitHub watchers](https://img.shields.io/github/watchers/RobertvanEijk-OW-251185/hollowEmber?color=000000)
 ![GitHub language count](https://img.shields.io/github/languages/count/RobertvanEijk-OW-251185/hollowEmber?color=000000)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/RobertvanEijk-OW-251185/hollowEmber?color=000000)
-[![LinkedIn][linkedin-shield]][linkedin-url]
 
 <!-- HEADER SECTION -->
 <h5 align="center" style="padding:0;margin:0;">Robert van Eijk</h5>
@@ -71,7 +70,7 @@
 
 ### Project Description
 
-A nice introduction to this amazing project of mine.
+This project is a cozy, camp-style game designed to foster important conversations that won't be remembered by any system. Join a fire and the discussion to keep the burning flame going.
 
 ### Built With
 
@@ -83,37 +82,28 @@ A nice introduction to this amazing project of mine.
 <!-- Make sure to add appropriate information about what prerequisite technologies the user would need and also the steps to install your project on their own machines -->
 ## Getting Started
 
-The following instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+The following instructions will get a copy of the project up and running on your local machine for development and testing.
 
 ### Prerequisites
 
-Ensure that you have the latest version of [Software](path/to/where/they/can/download/software) installed on your machine. The [Plugin](path/to/where/they/can/download/plugin) plugin will also be required.
+Ensure that you have the latest version of [XAMP](https://www.apachefriends.org/download.html) installed on your machine.
 
 ### How to install
 
 ### Installation
 Here are a couple of ways to clone this repo:
 
-1. Software </br>
-`Android Studio` -> `File` -> `New` -> `From Version Control` -> `Git`</br>
-Enter `https://github.com/username/projectname.git` into the URL field and press the `Clone` button.
-
-2. Clone Repository </br>
+1. Clone Repository </br>
 Run the following in the command line to clone the project:
    ```sh
-   git clone https://github.com/username/projectname.git
+   git clone https://github.com/RobertvanEijk-OW-251185/hollowEmber.git
    ```
     Open `Software` and select `File | Open...` from the menu. Select the cloned directory and press the `Open` button
 
-3. Install Dependencies </br>
+2. Install Dependencies </br>
 Run the following in the command line to install all the required dependencies:
    ```sh
    npm install
-   ```
-
-4. Get a free API Key at [https://example.com](https://example.com) and enter it in the `config.js` file:
-   ``` js
-   const API_KEY = 'ENTER YOUR API';
    ```
 
 
@@ -123,7 +113,7 @@ Run the following in the command line to install all the required dependencies:
 
 ### Log In and Sign Up
 
-Description of Feature
+Players are first introduced to the camp through the Logbook. From there, they can create an account, log in, and join the camp to begin their experience.
 
 ![Login](assets/FeaturesImages/Login.png)
 
@@ -131,7 +121,7 @@ Description of Feature
 
 ### Camp Select
 
-Description of Feature
+After players have created their accounts and logged in, they will arrive at the Camp Select Menu. Here, they can choose a campfire to join and wait patiently for the session to fill with other players.
 
 ![CampSelectBase](assets/FeaturesImages/CampSelect.png)
 
@@ -141,8 +131,11 @@ Description of Feature
 
 ### Campfire Chat
 
-Description of Feature
+After joining a campfire, players wait for the fire to fill to a maximum of 4 players. Then, a random topic is chosen from the database and assigned to the session. Only then does the Start Fire button become active, and any player can light the fire to begin the conversation. Through chatting, players earn scores for their messages and lose score if they stop engaging. When the fire burns out, all chat communication ends, and players can either leave themselves or be removed after a 10-second waiting period.
 
+![image4](assets/FeaturesImages/CampfireRoom.png)
+![image4](assets/FeaturesImages/CampfireRoom.png)
+![image4](assets/FeaturesImages/CampfireRoom.png)
 ![image4](assets/FeaturesImages/CampfireRoom.png)
 
 
@@ -151,7 +144,7 @@ Description of Feature
 <!-- Briefly explain your concept ideation process -->
 ## Concept Process
 
-The `Conceptual Process` is the set of actions, activities and research that was done when starting this project.
+The `Conceptual Process` is the set of actions, activities, and research that were done when starting this project.
 
 ### Ideation
 
@@ -171,21 +164,15 @@ The `Development Process` is the technical implementation and functionality done
 
 * Made use of both `functionality` to implement a specific feature.
 * `MVC/MVVM` design architecture implemented.
-* `Plugin` for this.
 * ETC.
 
-#### Highlights
-<!-- stipulated the highlight you experienced with the project -->
-* Sunshine.
-* Rainbows.
-
 #### Challenges
-<!-- stipulate the challenges you faced with the project and why you think you faced it or how you think you'll solve it (if not solved) -->
+<!-- stipulate the challenges you faced with the project and why you think you faced them or how you think you'll solve them (if not solved) -->
 * Bugs.
 * Bugs.
 
 ### Reviews & Testing
-<!-- stipulate how you've conducted testing in the form of peer reviews, feedback and also functionality testing, like unit tests (if applicable) -->
+<!-- stipulate how you've conducted testing in the form of peer reviews, feedback, and also functionality testing, like unit tests (if applicable) -->
 
 #### Feedback from Reviews
 
@@ -282,13 +269,4 @@ Distributed under the MIT License. See `LICENSE` for more information.\
 [CampfireRoom]: assets/FeaturesImages/CampfireRoom.png
 [Login]: assets/FeaturesImages/Login.png
 [Signup]: assets/FeaturesImages/Signup.png
-
-
-<!-- Refer to https://shields.io/ for more information and options about the shield links at the top of the ReadMe file -->
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
-[linkedin-url]: https://www.linkedin.com/in/nameonlinkedin/
-[instagram-shield]: https://img.shields.io/badge/-Instagram-black.svg?style=flat-square&logo=instagram&colorB=555
-[instagram-url]: https://www.instagram.com/instagram_handle/
-[behance-shield]: https://img.shields.io/badge/-Behance-black.svg?style=flat-square&logo=behance&colorB=555
-[behance-url]: https://www.behance.net/name-on-behance/
 
