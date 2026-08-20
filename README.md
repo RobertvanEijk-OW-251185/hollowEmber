@@ -180,6 +180,9 @@ The `Development Process` is the technical implementation and functionality done
 ### Implementation Process
 <!-- stipulate all of the functionality you included in the project -->
 
+### ERD
+![ERD](assets/Mockups/ERD.png)
+
 The application was implemented with a server-rendered PHP frontend, a MySQL database, and JavaScript for interactive behavior. The main implementation areas were:
 
 * **Account authentication:** `index.php` handles sign-up and login requests. New passwords are securely hashed with PHP's `password_hash()` function, while login credentials are checked with `password_verify()`. Successful logins store the user's ID and username in a PHP session.
