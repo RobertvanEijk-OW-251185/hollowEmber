@@ -27,7 +27,7 @@
 
   <p align="center">
     Share your thoughts by the fire! <br>
-      <a href="https://github.com/RobertvanEijk-OW-251185/holoowEmber"><strong>Explore the docs »</strong></a>
+      <!-- <a href="https://github.com/RobertvanEijk-OW-251185/holoowEmber"><strong>Explore the docs »</strong></a> -->
    <br />
    <br />
    <a href="https://drive.google.com/file/d/1S4tPeVz3jmfLwv1Mk5I70p_ewfFjaIcK/view?usp=sharing">View Demo</a>
